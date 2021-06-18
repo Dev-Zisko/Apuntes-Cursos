@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="keywords" content="palabra1, palabra2">
+<meta name="description" content="descripcion de la pagina">
+<meta name="author" content="nombre">
+<meta name="copyright" content="copyright 2021">
+<meta name="robots" content="index o noindex, follow o nofollow">
+html: Agrupador de la pagina.
+head: Donde van los metadatos y titulo de la pagina.
+header: La cabecera de la pagina.
+body: El cuerpo de la pagina.
+footer: El pie de pagina.
+meta: Metadatos de la pagina.
+h1, h2, h3, h4, h5, h6: Titulos. 
+p: Parrafos.
+b: Letra negrita.
+i: Letra italica.
+strike: Letra tachada.
+small: Letra chiquita.
+a: link.
+br: deja un espacio.
+ul: Inicio de lista con viñetas.
+ol: Inicio de lista numerica.
+li: Elementos de la lista.
+img: Imagen.
+video: Video.
+div: Agrupador de cosas.
+form: Formulario.
+input: Entrada de datos.
+textarea: Entrada de datos grande.
+section: Seccion de mi pagina.
+nav: Barra de navegacion.
+article: Articulo de la pagina.
+aside: Menu a un lado de la pagina.
+table: Tablas.
+tr: Fila.
+th: Columna.
+
+Buen SEO: article-section-h1-h2-p
+
+href="link"
+target="_blank"
+src="link"
+type="text-password-number-email-color-range-date-time-button-submit"
+name="nombre"
+id="nombre"
+min="1" Para tipo range
+max="100" Para tipo range
+value="hola"
+placeholder="hola"
+method="post"

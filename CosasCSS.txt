@@ -1,0 +1,243 @@
+Normalize agregar esto:
+img{ max-width: 100%; }
+* { box-sizing: border-box; padding: 0; margin: 0; }
+
+box-sizing: content-box (Se deforma si se sale de la caja) or border-box (No se deforma si se sale de la caja).
+
+display: inline (solo lo que contiene) or block (toda la caja) or inline-block (lo que contiene en la caja) or none (desaparece).
+
+border : tamaño estilo(solid, dashed, double, inset, etc) color.
+
+box-shadow: ejex ejey tamañosombra cuantoborde color.
+
+text-shadow: ejex ejey tamañosombra color.
+
+outline: lo mismo que border pero no ocupa nada en el DOM (como los bordes que salen en los inputs).
+
+position: static (el default) or relative (añadirle top-left-right-bottom) or absolute (el espacio reservado de la box se quita y se ajusta a lo que contenga) or fixed (fijo en el lugar pero pierde el valor del DOM) or sticky (fijo en el lugar pero aun sigue el valor del DOM, es como el fixed pero desde el lugar que se pone).
+
+opacity: transparencia.
+
+z-index: -1 para poner a un hijo por debajo del padre.
+
+(lo que sobra en la box) overflow or overflow-x or overflow-y: visible (defecto) or hidden (esconde lo que sobra) or auto (scroll en la box si sale) or scroll (aunque no salga scroll).
+
+float: left or right or none or inherit (posicionar las cajas dependiendo de lo que ocupan) (imagenes entre textos generalmente se usa para esto).
+
+Pseudo-Elementos (BUSCAR HAY MUCHOS):
+::first-line (funciona en los bloques) (primera linea de un texto)
+::first-letter (funciona en los bloques) (primera letra de un texto)
+::placeholder (el placeholder de los inputs)
+::selection (cuando selecciono algo)
+::after (requieren propiedad content="texto") (funciona en elementos inline)
+::before (requieren propiedad content="texto") (funciona en elementos inline)
+
+Pseudo-Clases o Selectores (BUSCAR HAY MUCHOS):
+:hover (cuando pasa el mouse encima)
+:link (link no visitado)
+:visited (link visitado)
+:active (cuando presionamos y sostenemos sobre algo)
+:focus (cuando estas en el focus del input)
+:lang (es una función le pasas un string y si es igual entra en el css y hace los cambios)
+:first-child (de un conjunto de items)
+:nth-child(2) (selecciona el 2 del conjunto de items)
+:last-child (de un conjunto de items)
+:root (raiz del elemento)
+:valid (si el input es valido)
+
+(se usa más que todo para imagenes) object-fit: contain (default, se ajusta al contenido) or cover (se ajusta al contenido) or none (se queda como la imagen original) or fill (rellena el contenido) or scale-down (le da la propiedad más chiquita).
+object-position: top or down or left or right or 1em (para cuando se ajusta el contenido, elegir que lado más mostrar).
+
+cursor: cambiar el cursor cuando se entra en la box.
+
+@media only screen and(max-width: 800px){ para hacer responsive designs }
+
+Agregar siempre esta línea para responsive designs:
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+Calc para calculos en Css, ejemplo: height: calc(100vh - 37px).
+
+min-width
+min-height
+max-width
+max-height
+
+Cosas sobre flex-box (container (display: flex) y luego los items dentro de el):
+Para el content:
+display: flex (es un bloque con direcciones, siempre intenta respetar la altura del bloque).
+main axis (eje x) iz-der[main-start main-end].
+cross axis (eje y) arr-abj[cross-start cross-end].
+flex-direction: row (default, en fila) or column (en columna) or row-reverse (igual pero al reves) or column-reverse.
+flex-wrap: wrap (se respeta el ancho y se va el contenido abajo) or wrap-reverse (se va hacia arriba).
+flex-flow: column wrap (sirve para poner los comandos de arriba en uno).
+Para los items:
+justify-content: center or space-arround or space-between or space-evenly.
+align-items (una linea de items flex-item): flex-start (centra al inicio y se ajusta el contenido) or center (centrar verticalmente al contenedor) or flex-end (centra al final) or stretch (por defecto) or baseline (van subiendo en vez de bajar los items con wrap-reverse).
+align-content (más de una linea): se alinean los items en casi la misma linea en cambio el align-items se alinea mucho más abajo.
+align-self (para un item en particular se usan las mismas de align-items).
+flex-grow (el espacio sobrante se distribuye): un numero, por ejemplo, 1.
+flex-basis (es como el width de los items, es más importante): 300px, por ejemplo.
+flex-shrink (sirve para cederle el espacio a los demas items): un numero, por ejemplo, 1. Si se usa 0 no cede espacio.
+flex: flex-grow, flex-shrink, flex-basis.
+order (como z-index pero del main-axis con las rows y del cross-axis con colums): numero.
+
+Cosas sobre display: grid. Grids:
+grid-container (el contenedor de las grids)
+grid-item (dentro de las grids)
+grid-cell (celdas, los cuadros dentro de la grid)
+grid-tracks (columns y rows)
+grind-area (celdas consecutivas entre si)
+grid-line (column-line y row-line) (practicamente son los contornos)
+
+Propiedades de grid:
+grid-template-rows (para el grid-container) (el numero de filas): 150em 150em 150px ejemplo (3 filas). O se puede usar repeat(3, 150px).
+grid-template-colums (para el grid-container) (el numero de columnas): 150px 150px 1fr ejemplo (3 columnas) (el fr es para asignar el espacio sobrante).
+grid-gap (para el grid-container) (margen entre celdas): 10px ejemplo.
+grid-row-gap (para el grid-container) (margen entre filas): 10px ejemplo.
+grid-column-gap (para el grid-container) (margen entre columnas): 10px ejemplo.
+grid-row (para el grid-item) (ocupar más espacio pero empuja las demás celdas): 1 / 3 de la linea 1 a la linea 3 de la grilla. Otro ejemplo 1 / span 3 (ocupe 3 filas).
+grid-column (para el grid-item) (ocupar más espacio pero empuja las demás celdas): 1 / 3 de la linea 1 a la linea 3 de la grilla. Otro ejemplo 1 / span 3 (ocupe 3 columnas).
+grid-row-start (para el grid-item): empieza en la linea tal (lo mismo que grid-row).
+grid-row-end (para el grid-item): termina en la linea tal (lo mismo que grid-row).
+grid-column-start (para el grid-item): empieza en la linea tal (lo mismo que grid-column).
+grid-column-end (para el grid-item): termina en la linea tal (lo mismo que grid-column).
+grid-template (grid-container): row / columns.
+
+Grid implicito y explicito (cuando se baja una casilla sola):
+grid-auto-rows (se rellena lo que falte en filas): 200px.
+grid-auto-columns (se rellena lo que falte en columnas): 200px.
+grid-auto-flow (rellena de columns o rows): column or row or dense (se ajusta o se acomoda o rellena vacios).
+
+Grid dinamico:
+minmax: Ejemplo grid-template-columns: repeat(3, minmax(150px, 300px)) or repeat(3, minmax(min-content, max-content)).
+min-content: Ejemplo grid-template-columns: repeat(3, min-content) (se ajusta al contenido minimo).
+max-content: Ejemplo grid-template-columns: repeat(3, max-content) (se ajusta al contenido maximo).
+auto-fill: Ejemplo grid-template-columns: repeat(autofill, min-content) (rellena de celdas nuevas mientras se pueda).
+auto-fit: Ejemplo grid-template-columns: repeat(autofit, min-content) (escala el tamaño o rellena el tamaño sin generar nuevas celdas).
+
+Alineacion de grids y control de flujo (el flex es dentro de cada celda, cada celda es un flex-container):
+justify-items (grid-container) (horizontalmente): stretch (defecto) or start or center or end.
+align-items (grind-container) (verticalmente): stretch (defecto) or start or center or end.
+justify-content: space-arround or space-between or space-evenly.
+align-cotent: space-arround or space-between or space-evenly.
+align-self (al propio item o celda): stretch (defecto) or start or center or end.
+justify-self (al propio item o celda): stretch (defecto) or start or center or end.
+place-self: align-self justify-self.
+order (igual que en flex): numero. (ordenar diferente los items o celdas).
+
+Trabajando con grid areas:
+grid-template-areas: 
+	"header header header"
+	"aside main main"
+	"aside main main"
+	"aside main main"
+	"aside main main"
+	"footer footer footer".
+grid-area: nombre del area.
+
+Trabajando con nombres de filas o columnas:
+grid-template-rows: 
+	[f-line]
+	150px
+	[s-line]
+	150px.
+grid-row: f-line / s-line.
+
+Responsive design:
+all (todos los dispositivos).
+print (destinado a material impreso).
+screen (destinado a pantallas).
+speech (destinado a sintetizadores de voz).
+orientacion: landscape (horizontal) or portrait (vertical).
+
+Mediaquerys:
+@media screen and (min-width: 400px) and (max-width: 650px){ background: red }
+
+Transiciones:
+transition-property: nombre de la propiedad (ejemplo: background, etc) or all or none.
+transition-duration: 1s. (duracion de 1s para hacer la transition).
+transition-delay: 1s. (retraso de 1s para hacer la transition).
+transition-timing-function: linear or ease or ease-in or ease-out or ease-in-out or step-start or step-end or steps(int, start|end) or initial or inherit.
+
+Animaciones:
+animation-name: nombre.
+animation-duration: 1s.
+animation-delay: 1s.
+animation-timing-function: linear or ease or ease-in or ease-out or ease-in-out or step-start or step-end or steps(int, start|end) or initial or inherit or cubit-bezier(x,y,x,y).
+animation-iteration-count: numero or infinite (numero de veces que se repite).
+animation-fill-mode: none or forwards or backwards or both or initial or inherit.
+animation-direction: normal or reverse or alternate or alternate-reverse.
+Ejemplo:
+.caja-div{
+	animation-name: desplazarse;
+	animation-duration: 3s;
+}
+@keyframes desplazarse {
+	from{
+		position: relative;
+		left: 0;
+	}
+	to{
+		left: 80%;
+	}
+	o puede usarse:
+	0%{}
+	25%{}
+	50%{}
+	etc
+}
+
+Transform:
+transform: translateX(50px) or translateY(100%); (Lo desplaza en X o Y)
+transform: translate(50px, 50px); (Lo desplaza en X y Y)
+transform: scaleX(1.5) or scaleY(1.5) or scaleZ(1.5); (Lo escala en X o Y o Z) 
+transform: scale(1.5, 1.5, 1.5) translateX(50px); (Lo escala en X, Y y Z) (Lo desplaza en X)
+transform: skew(30deg); (Lo deforma en grados) 
+transform: rotate(90deg);
+transform: perspective(90deg);
+
+Backgrounds:
+background: red;
+background: inherit (hereda el color de su padre).
+background-color: red;
+background-image: url('link');
+background-size: 100% 100% or cover or containt or etc.
+background-repeat: no-repeat or repeat or etc.
+background-clip: border-box or padding-box or content-box. (la imagen queda fuera de lo que se ponga)
+background-origin: border-box or padding-box or content-box. (desde donde comienza la imagen)
+background-position: left or top or botton or right or left top or etc.
+background-attachment: scroll (la imagen scrollea) or fixed (la imagen queda fija) or inherit (lo hereda).
+
+Variables:
+:root{
+	--color-rojo: red;
+}
+.container{ background: var(--color-rojo) }
+
+Filtros:
+filter: blur(1rem) or -->
+none
+blur(px)
+brightness(0-1)
+contrast(numero or %)
+drop-shadow(medidas)
+grayscale(%)
+hue-rotate(deg)
+invert(%)
+opacity(%)
+saturate(%)
+sepia(%)
+url("filters.svg#filter-id")
+
+Extras:
+Efecto gotas de agua: filter blur y contrast con animation.
+direction: ltr or rtl or initial or inherit. (Para cambiar la dirección de los textos, derecha o izquierda).
+letter-spacing: 1px; (Separa las letras).
+scroll-behavior: smooth; (cambia el efecto del scroll en la pagina web, clicks, etc).
+user-selected: none (no puede seleccionar o copiar ni buscar).
+text-shadow: (añade sombra al texto).
+clip-path (distintos tipos buscar en internet): polygon(50% 0%, 0% 100%, 100% 100%);
+object-fit: cover.
+display: flex or grid or inline-flex or inline-grid.
+linear-gradient(to top, transparent, red)
+attr()

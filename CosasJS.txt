@@ -1,0 +1,1170 @@
+###################################################################################################################
+NIVEL JUNIOR:
+###################################################################################################################
+
+- Declaraciones:
+
+var = Generalmente global.
+let = Generalmente para un bloque de codigo o funcion.
+const = Variable constante que no cambia.
+
+Example: let numero1 = 1, numero2 = 2;
+
+null = Variable vacia.
+undefined = Variable definida pero no tiene valor.
+NaN = Not is a number.
+
+- Prompt:
+
+Es una función que pide un dato al usuario por pantalla y se puede almacenar en una variable.
+
+- Abreviaciones en asignaciones de numeros:
+
+x = y
+x += y    x = x + y
+x -= y    x = x - y
+x *= y    ...
+x /= y
+x %= y
+x **= y
+x <<= y (Asignacion de desplazamiento a la izquierda)
+x >>>= y (Asignacion sin signo de desplazamiento a la derecha)
+x &= y   x = x & y (Asignacion and)
+x ^= y   x = x ^ y (Asignacion xor)
+x |= y   x = x | y (Asignacion or)
+x++      (Se le suma 1)
+x--      (Se le resta 1)
+-x       (El numero se pone negativo)
++x       (El numero se pone positivo)
+
+- Concatenar strings:
+
+texto1 + texto2
+texto1 + numero (Al tener texto javascript convierte todo a texto)
+numero1.concat(numero2)
+frase = `Hola ${texto1} así se usa una variable`
+
+- Backticks (` Alt+96)
+
+Permite usar variables, poner varias lineas de codigo y funcione, agregar codigo html, etc.
+
+- Operadores logicos y de comparacion:
+
+Igual (a == b)
+No igual (a != b)
+Identico (a === b) -- Mismo tipo de dato e igual
+No identico (a !== b)
+Mayor que (a > b)
+Mayor o igual (a >= b)
+Menor que (a < b)
+Menor o igual (a <= b)
+Cambiar de True a False o viceversa (!false)
+Operador Y (&&) 
+Operador O (||)
+
+- Condicionales:
+
+If
+Else if
+Else
+
+- Arrays:
+
+array = [1, 2, 3, "hola"]
+array[0]
+
+array = {
+	nombre: "Pepe",
+	apellido: "Pelado"
+}
+array[nombre]
+
+- Bucles e iteraciones:
+
+while (numero < 10)
+
+do { hola } while (numero < 10) -- Primero ejecuta y luego pregunta.
+
+for (let i = 0; i < 3; i++)
+
+for (animal in animales) { muestra las posiciones de los elementos }
+
+for (animal of animales) { muestra los contenidos en sí }
+
+break -- Rompe el ciclo
+continue -- Salta alguna condicion
+
+forCreadoPorMi:
+for (){
+	for(){
+		break forCreadoPorMi; -- Rompe todo el ciclo
+	}
+}
+
+- Funciones:
+
+function saludar() {
+	return "hola";
+}
+
+const saludar = () => {
+	return "hola";
+}
+
+- Objetos:
+
+class Animal {
+	constructor(especie, edad, color){
+		this.especie = especie;
+		this.edad = edad;
+		this.color = color;
+	}
+
+	saludar(){
+		alert('Hola');
+	}
+}
+
+let perro = new Animal("perro", 5, "marron");
+perro.especie
+
+- Herencia:
+
+class Perro extends Animal {
+	constructor(especie, edad, color, raza){
+		super(especie, edad, color);
+		this.raza = raza;
+	}
+
+	set setRaza(newName){
+		this.raza = newName;
+	}
+
+	get getRaza(){
+		return this.raza;
+	}
+
+	static ladrar (){ (Puede o no ser static, static se refiere a que se puede usar si no requiere ninguna propiedad)
+		alert("Guau");
+	}
+}
+
+- Metodos de cadenas:
+
+cadena1.concat(cadena2): Concatena dos o mas cadenas y retorna una nueva.
+cadena1.startsWith(cadena2): Si una cadena comienza con los caracteres.
+cadena1.endsWith(cadena2): Si una cadena termina con los caracteres.
+cadena1.includes(cadena2): Si una cadena puede encontrar dentro de otra.
+cadena.indexOf("hola"): Devuelve el indice del primer caracter de la cadena. Si no devuelve -1.
+cadena.lastIndexOf("hola"): Devuelve el ultimo indice de la cadena. Si no devuelve -1.
+cadena.padStart(10, "a"): Rellenar cadena al principio con los caracteres.
+cadena.padEnd(10, "b"): Rellenar cadena al final con los caracteres.
+cadena.repeat(5): Devuelve la misma cadena repetida el numero de veces.
+cadena.split("-"): Divide la cadena con el caracter buscado.
+cadena.substring(0, 2): Devuelve la cadena cortada como se le pidio.
+cadena.toLowerCase(): Todo a miniscula.
+cadena.toUpperCase(): Todo a mayuscula.
+variable.toString(): Convierte algo a cadena.
+cadena.trim(): Elimina los espacios en blanco al principio y final de una cadena.
+cadena.trimStart(): Elimina los espacios en blanco al inicio de una cadena.
+cadena.trimEnd(): Elimina los espacios en blanco al final de una cadena.
+valueOf(): Retorna el valor primitivo de un objeto string.
+
+- Metodos de arrays:
+
+array.push("nuevo", "otro"): Agrega un elemento al final del array.
+array.shift(): Elimina el primer elemento del array y lo devuelve.
+array.pop(): Elimina el ultimo elemento del array y lo devuelve.
+array.reverse(): Invierte el orden del array.
+array.unshift(1, 2, 3): Agrega uno o mas elementos al array y devuelve la longitud del nuevo array.
+array.sort(): Ordena los elementos de un array y devuelve el array ordenado.
+array.splice(-1, "roberto") array.splice(0, 3): Cambia el array eliminando elementos existentes y/o agregando nuevos elementos.
+array.join("-"): Une todos los elementos de una matriz en una cadena y lo devuelve.
+array.slice(0, 2): Devuelve una parte del array dentro de un nuevo array empezando por inicio al final (final no incluido).
+.toString() .indexOf() .lastIndexOf() .includes() Tambien sirven con arrays.
+array.filter(element => element.length > 4): Crea un nuevo array con todos los elementos que cumplan la condicion.
+array.forEach(element => alert(element)): Ejecuta la funcion indicada por cada elemento del array.
+
+- Objeto Math:
+
+Math.sqrt(25): Devuelve la raiz cuadrada positiva de un numero.
+Math.cbrt(27): Devuelve la raiz cubica de un numero.
+Math.max(4, 1, 6): Devuelve el mayor de varios numeros.
+Math.min(4, 1, 6): Devuelve el menor de varios numeros.
+Math.random(): Devuelve un numero pseudo-aleatorio entre 0 y 1.
+Math.round(numero): Devuelve el valor redondeado de un numero.
+Math.fround(numero): Devuelve el punto flotante más cercano de un numero.
+Math.floor(numero): Devuelve el mayor entero <= a un numero. (Redondea para abajo)
+Math.trunc(numero): Devuelve la parte entera de un numero.
+PI: Valor de pi.
+SQRT1_2: Valor de la raiz cuadrada de 1/2.
+SQRT2: Valor de la raiz cuadrada de 2.
+E: Valor de la constante euler.
+LN2: Valor de logaritmo natural de 2.
+LN10: Valor de logaritmo natural de 10.
+LOG2E: Valor de logaritmo de e con base 2.
+LOG10E: Valor de logaritmo de e con base 10.
+
+- Metodos de consola:
+
+console.assert(): Aparece un mensaje de error en la consola si la afirmacion es falsa.
+console.clear(): Limpia la consola.
+console.error(): Muestra un mensaje de error en la consola.
+console.info(): Emite un mensaje informativo en la consola.
+console.log(): Muestra un mensaje en la consola.
+console.table(): Toma una data que debe ser array u objeto y un parametro adicional (columns) y nos muestra una tabla en la consola.
+console.warn(): Imprime un mensaje de advertencia en la consola.
+console.dir(): Despliega una lista de las propiedades del objeto especificado.
+console.count(): Registra el numero de veces que se llama.
+console.countReset(): Resetea el contador.
+console.group(): Crea un nuevo grupo en linea en el registro de la consola.
+console.groupEnd(): Remueve un grupo.
+console.groupCollapsed(): Crea un grupo en linea pero contraido. Se debe clickear para expandirlo.
+console.time(): Inicia un temporizador.
+console.timeEnd(): Registra el valor actual del temporizador.
+console.timeLog(): Detiene un temporizador.
+console.log("%Hola", "color: red, background: black, padding: 5px"): Ejemplo de agregar css en consola.
+
+- El DOM:
+
+Nodo: Cualquier etiqueta del cuerpo, ejemplo, parrafo, body, etiquetas, listas, etc.
+*Document: El nodo raiz, a partir del cual se derivan los demas.
+*Element: Nodos definidos por etiquetas html.
+*Text: El texto dentro de un nodo element se considera un nuevo nodo hijo.
+*Attribute: Los atributos de las etiquetas definen nodos.
+*Comentarios y otros elementos como las declaraciones doctype en cabecera de los documentos html generan nodos.
+
+- Document (Metodos de seleccion de elementos):
+
+document.getElementById('id'): Selecciona un elemento por id.
+document.getElementByTagName('p'): Selecciona todos los elementos que coincidan con el nombre.
+document.querySelector(#class): Devuelve el primer elemento que coincida con el grupo especificado de selectores.
+document.querySelectorAll(#class): Devuelve todos los elementos que coincidan con el grupo especificado de selectores.
+
+- Atributos (Metodos de atributos):
+
+element.setAttribute("type", "text"): Modifica el valor de un atributo.
+element.getAttribute("type"): Obtiene el valor de un atributo.
+element.removeAttribute("type"): Remueve el valor de un atributo.
+
+- Atributos globales:
+
+class: Lista de clases del elemento separadas por espacios.
+contenteditable: Indica si el elemento puede ser modificable por el usuario (bool, false or true).
+titulodir: Indica la direccionalidad del texto.
+titulohidden: Indica si el elemento aun no es o ya no es.
+id: Define un identificador unico.
+style: Contiene declaraciones de estilo css para ser aplicadas al elemento.
+tabindex("1"): Indica si el elemento puede obtener un focus usando la tecla TAB.
+title: Contiene un texto con informacion relacionada al elemento al que pertenece.
+
+- Atributos de inputs:
+
+input.className: Muestra la clase del input.
+input.value: El valor del input.
+input.type: El tipo del input.
+input.accept: Para inputs tipo file, poner el tipo de archivos permitidos, ejemplo: image/png.
+input.form: Activa el formulario con el id colocado. form="formulario".
+input.minlength: Minimo de longitud aceptada.
+input.placeholder: El valor del placeholder del input.
+input.required: Si el input es requerido si o no.
+
+- Atributos de style:
+
+titulo.style.color = red.
+Todo sobre CSS.
+
+- Clases o ClassList:
+
+titulo.classList.add("clasenueva"): Añade una clase.
+titulo.classList.remove("clasenueva"): Remueve una clase.
+titulo.classList.item(0): Devuelve la clase del indice especificado.
+titulo.classList.contains("clasenueva"): Verifica si el elemento posee o no la clase especificada. True or False.
+titulo.classList.replace("clasevieja", "clasenueva"): Reemplaza una clase por otra.
+titulo.classList.toggle("clasenueva"): Si no tiene la clase la agrega y si la tiene la elimina.
+
+- Obtener y Modificar elementos:
+
+textContent: Devuelve el texto de cualquier nodo. EL QUE SE USA.
+innerText: Devuelve el texto visible de un nodo element. NO SE USA CASI.
+outerText: Devuelve el texto de las etiquetas html incluidas las etiquetas. NO SE USA YA.
+innerHTML: Devuelve el contenido html de un elemento.
+outerHTML: Devuelve el codigo html completo del elemento.
+
+- Creacion de elementos:
+
+document.createElements("LI"): Crea un elemento.
+document.createTextNode("Texto"): Crea un texto que puede ser insertado en un elemento (Es un objeto).
+document.createDocumentFragment(): Crea un fragmento de codigo, se puede insertar todo con appendChild(item).
+
+- Obtencion y modificacion de childs:
+
+firstChild(): Obtiene el primer hijo (Cuenta espacios o texto no HTML).
+lastChild(): Obtiene el ultimo hijo (Cuenta espacios o texto no HTML).
+firstElementChild(): Obtiene el primer elemento hijo.
+lastElementChild(): Obtiene el ultimo elemento hijo.
+childNodes(): Devuelve todos los nodos hijos. (NodeList es un objeto no un array). Recorrer con ForEach.
+children(): Devuelve los elementos nodos hijos. (HTMLCollection). Recorrer con For in o For of.
+
+- Metodos de los childs:
+
+contenido.appendChild(nuevocontenido): Inserta contenido en un hijo.
+contenido.replaceChild(h1nuevo, h1viejo): Re-emplaza un hijo por otro.
+contenido.removeChild(h1viejo): Remueve un hijo.
+contenido.hasChildNodes(): Verifica si tiene elementos hijo.
+
+- Propiedades de los parents (padres):
+
+h1.parentElement: Devuelve el padre elemento de un elemento. Siempre busca etiquetas HTML.
+h1.parentNode: Devuelve el padre de un elemento. Busca el padre nodo si no hay HTML.
+
+- Propiedades de los siblings (hermanos):
+
+div.nextSibling: Devuelve el siguiente a ese elemento. No necesariamente tiene que ser HTML. (Su hermano).
+div.previousSibling: Devuelve el anterior a ese elemento. No necesariamente tiene que ser HTML. (Su hermano).
+div.nextElementSibling: Devuelve el siguiente a ese elemento. Siempre elementos HTML. (Su hermano).
+div.previousElementSibling: Devuelve el anterior a ese elemento. Siempre elementos HTML. (Su hermano).
+
+- Nodos:
+
+element.closest(".div"): Devuelve el elemento ascendente mas cercano que coincida con el selector.
+
+###################################################################################################################
+MID LEVEL:
+###################################################################################################################
+
+- Introduccion a window (Hereda las propiedades de EventTarget):
+
+window.open("https://www.youtube.com"): Carga un recurso en el contexto de un nuevo navegador o uno que ya existe.
+ventana.close(): Cierra la ventana actual, o la ventana en la que se llamo.
+ventana.closed: Indica si la ventana referenciada esta cerrada o no. (True or False).
+name: Obtiene/Establece el nombre del contexto de exploracion de la ventana.
+ventana.stop(): Detiene la carga de recursos en el contexto de navegacion actual. Detiene la web.
+alert(): Muestra un cuadro de alerta con el contenido especificado y un boton aceptar.
+print(): Abre el cuadro de dialogo Imprimir, para imprimir el documento actual.
+prompt(): Abre un cuadro de dialogo con un mensaje que solicita al usuario un dato.
+confirm(): Abre un cuadro de dialogo con un mensaje y los botones aceptar y cancelar. (True or False).
+
+window.screen: Devuelve varios datos o propiedades de la pantalla.
+window.screenLeft: Devuelve la distancia horizontal entre el borde izquierdo del navegador y el borde izquierdo de la pantalla.
+window.screenTop: Devuelve la distancia vertical entre el borde superior del navegador y el borde superior de la pantalla.
+window.scrollX: Devuelve el numero de pixeles que el documento se desplaza actualmente horizontalmente.
+window.scrollY: Devuelve el numero de pixeles que el documento se desplaza actualmente verticalmente.
+window.scroll(10, 100): Desplaza la ventana a un lugar particular en el documento. (con options y con posiciones).
+
+window.minimize(): Minimiza la ventana. YA NO SE USA.
+window.resizeBy(100, 200): Cambia el tamaño de la ventana actual en una cantidad especifica.
+window.resizeTo(100, 200): Redimensiona dinamicamente la ventana.
+window.moveBy(100, 200): Mueve la ventana en una ubicacion relativa.
+window.moveTo(100, 200): Mueve la ventana en una ubicacion absoluta.
+
+window.[locationbar, menubar, personalbar, scrollbars, statusbar, toolbar]: Permite ver las distintas barras. visible (True or False).
+
+- Location:
+
+window.location.href: Devuelve el href de la pagina actual.
+window.location.hostname: Devuelve el nombre del dominio del servidor web.
+window.location.pathname: Devuelve la ruta y el nombre de archivo de la pagina actual.
+window.location.protocol: Devuelve el protocolo web utilizado (http o https).
+window.location.assign("https://www.youtube.com"): Carga un nuevo documento.
+
+- Pestañas del navegador para inspeccionar usos:
+
+Elements: [Filtros y buscar palabras claves, Modificar crear y eliminar etiquetas, Modificar propiedades CSS, Event Listeners, Properties, Opciones para copiar codigo, Mas].
+Resources: [Ver y guardar archivos, Informacion ofrecida, Cambios en tiempo real, Snippets (Ejecutar codigos por fragmentos)].
+Networks: [Interfaz, Sort by y filtros de busqueda, Limpiar cookies y cache, Importar y Exportar].
+Timeline: [Uso y grabacion, Screenshots de la grabacion, Controls, Overview (FPS, CPU y Net), Flame Chart, Details, Sugerencias de grabacion].
+Application: [Application, Storage, Cache, Background Services, Frames].
+
+- Eventos:
+
+button.addEventListener("click", function): Añade un evento que escucha al elemento.
+button.removeEventListener("click, function): Remueve un evento al elemento.
+
+Los eventos se ejecutan desde el mas adentro al mas afuera. Al menos que se ponga true en el addEvent, se puede jugar con el orden. 
+Example: addEventListener("click", (e)=>{ alert("hola") }, true);
+
+Para que los eventos no se propaguen en los demas. Example:
+addEventListener("click", (e)=>{ alert("hola"); e.stopPropagation(); });
+
+- Eventos del mouse:
+
+click: Ocurre con un click.
+dblclick: Ocurre con un doble click.
+mouseover: Ocurre cuando el mouse se mueve sobre un elemento o sobre uno de sus hijos.
+mouseout: Ocurre cuando se mueve el mouse fuera de un elemento o de sus elementos secundarios.
+contextmenu: Ocurre con un click en el boton derecho en un elemento para abrir un menu contextual.
+mouseenter: Ocurre cuando el mouse se mueve sobre un elemento.
+mouseleave: Ocurre cuando el mouse se mueve fuera de un elemento.
+mouseup: Ocurre cuando un usuario suelta un boton del mouse sobre un elemento.
+mousedown: Ocurre cuando un usuario apreta un boton del mouse sobre un elemento.
+mousemove: Ocurre cuando el mouse se mueve mientras esta sobre un elemento.
+
+- Eventos de teclado:
+
+keydown: Ocurre cuando una tecla se deja de presionar.
+keypress: Ocurre cuando una tecla se presiona y suelta en un elemento.
+onkeyup: Ocurre despues de que los dos eventos anteriores hayan concluido consecutivamente en el mismo elemento.
+
+- Eventos de interfaz:
+
+error: Ocurre cuando sucede un error durante la carga de un archivo multimedia.
+load: Ocurre cuando un objeto se ha cargado.
+beforeunload: Ocurre antes de que el documento esta a punto de descargarse. (Si cambias a otra pagina, por ejemplo).
+unload: Ocurre una vez que se ha descargado una pagina. (Si cambias a otra pagina, por ejemplo).
+resize: Ocurre cuando se cambia el tamaño de la vista del documento.
+scroll: Ocurre cuando se desplaza la barra de desplazamiento de un elemento.
+select: Ocurre despues de que el usuario selecciona algun texto de input o textarea.
+
+- Timers:
+
+const temporizador = setTimeout(saludar, 2000): Ejecuta la funcion a los 2 segundos en este caso.
+setTimeout(saludar, 2000): Ejecuta una funcion cada 2 segundos en este caso.
+clearTimeout(temporizador): Elimina el temporizador.
+clearInterval(): Elimina el temporizador.
+
+- Switch:
+
+switch(var){
+	case 1: 
+		console.log("Caso1");
+		break;
+	case 2: 
+		console.log("Caso2");
+		break;
+	default:
+		console.log("Ningun Caso");
+		break;
+}
+
+- Excepciones y errores:
+
+try{
+	hola;
+} catch(error){
+	console.log(error);
+} finally{
+	console.log("tenga o no error se va a mostrar");
+}
+
+throw{ error: "01", info: "Ocurrio el error 1" }; Arroja un error o excepcion.
+
+- Callbacks:
+
+Permite pasar una funcion a otra funcion.
+
+function prueba(callback){
+	callback("nombre");
+}
+
+function decirNombre(nombre){
+	console.log(nombre);
+}
+
+prueba(decirNombre);
+
+- Promesas:
+
+Generalmente se usa para funciones asincronas.
+
+let nombre = "Pedro";
+
+const promesa = new Promise((resolve, reject) => {
+	if(nombre !== "Pedro") 
+		reject("Lo siento, el nombre no es el esperado.");
+	else
+		resolve(nombre);
+});
+
+promesa.then((resultado) => {
+	console.log(resultado);
+}).catch((error) => {
+	console.log(error);
+});
+
+- Await y Async:
+
+const obtenerInformacion = () => {
+	return new Promise((resolve, reject) => {
+		setTimeout(() => { resolve(objeto)}, 1000)
+	})
+}
+
+const mostrarResultado = async () => {
+	resultado = await obtenerInformacion();
+	console.log(resultado);
+}
+
+mostrarResultado();
+
+- JSONs:
+
+parse(): Convierte un string con estructura JSON a formato JSON (deserializar).
+stringify():  Convierte un dato de Javascript en una cadena de texto JSON (serializar).
+JSON PolyFill.
+
+- AJAX:
+
+let request;
+
+if(window.XMLHttpRequest){ // Validar que el navegador soporte esto
+	request = new XMLHttpRequest();
+} else {
+	request = new ActiveXObject("Microsoft.XMLHTTP");
+}
+
+Peticiones GET
+
+const request = new XMLHttpRequest();
+request.addEventListener("readystatechange", () => { // Tiene 4 estados [1, 2, 3, 4]: Se creo, Se envio, Se proceso, Dio respuesta.
+	console.log(request.readyState);
+	if(request.readyState == 4) && (request.status == 200){
+		console.log(JSON.parse(request.response));
+	}
+});
+request.open("GET", "url");
+request.send();
+
+Peticiones POST
+
+request.open("POST", "url");
+request.sendRequestHeader("Content-type: application/json;charset=UTF8");
+request.send(JSON.stringify({ // Status 201 se creo el registro
+	"nombre": "Fran",
+	"trabajo": "Developer"
+}));
+
+- Fetch: // Otro tipo de dato para usar como HTTPREQUEST, etc
+
+Peticion GET
+
+request = fetch("url");
+request.then(response => console.log(response));
+
+console.log(request);
+
+text(): request.then(response => response.text()).then(res => console.log(res)); // Valor que nos devolvio.
+json(): request.then(response => response.json()).then(res => console.log(res)); // Valor que nos devolvio.
+
+Peticion POST
+
+request = fetch("url", {
+	method: "POST",
+	body: JSON.stringify({
+		"nombre": "Fran"
+	}),
+	headers: {
+		"Content-type" : "application/json"
+	}
+});
+
+blob(): request.then(response => response.blob()).then(res => console.log(res)); // Subir imagen
+formData():
+arrayBuffer():
+
+- Libreria Axios:
+
+axios("url").then(res => console.log(res.data));
+
+axios.post("url", { "nombre": "Fran", "apellido": "Olivas" }).then(res => console.log(res.data)); // El que mas se usa
+
+axios("url", {
+	method: "POST",
+	data: {"nombre: "Fran"}
+}).then(res => console.log(res.data));
+
+- Fetch y Axios con await y async:
+
+const getName =  async () => {
+	let request = await fetch("url");
+	let result = await request.json();
+	console.log(result.nombre);
+}
+
+const getAge =  async () => {
+	let request = await axios("url");
+	let result = await request.json();
+	console.log(result.data.edad);
+}
+
+###################################################################################################################
+NIVEL MASTER:
+###################################################################################################################
+
+- Prototipos:
+
+Son los padres de cada una de las variables u objetos.
+
+Tienen diferentes metodos, se puede acceder y ver con:
+
+variable.__proto__ (Se le llama dunder proto).
+
+Un prototipo puede tener otro prototipo y esto se le llama prototype chain.
+
+Los prototipos se pueden crear con funciones y se pueden acceder con:
+
+variable.prototype
+
+Se puede modificar las funciones de un objeto haciendo uso de __proto__, ejemplo:
+
+objeto.__proto__.hablar = ()=> {
+	console.log("modificada");
+}
+
+Si necesitamos que una variable o tipo de dato herede funciones de algun objeto, podríamos añadirle a su __proto__ ese objeto y así heredar los metodos:
+
+array.__proto__ = objeto;
+
+Si hemos modificado las funciones del objeto y no queremos que ese nuevo dato tome esas ediciones podemos hacer esto:
+
+array.__proto__ = objeto.__proto__;
+
+- Modo estricto (strict mode o use strict):
+
+Convierte errores de Js en excepciones. A su vez hace que vaya más optimizado.
+
+Como se usa el modo estricto:
+
+"use strict"; // En el inicio del todo el script.
+
+El modo estricto tirara errores en:
+
+Variables no declaradas.
+Si se intenta modificar propiedades que no estan permitidas.
+Cuando no se permiten extensiones o agregar propieades.
+Cuando se intenta agregar propiedades a un string.
+Cuando se usan variables con nombres iguales en una funcion.
+No permite usar delete en objetos o variables.
+Cuando se intentan usar palabras reservadas por el sistema.
+Cambia el uso de this en algunas cosas.
+Los numeros octales llevan una "o" adelante y no existe el with.
+Arguments y Eval no pueden ser variables.
+
+- Funciones flecha:
+
+const saludar = () => {
+	codigo;
+}
+
+Si solo usamos una linea de codigo no retorna el valor, ejemplo:
+
+const name = () => nombre = "pedro";
+resultado = name();
+console.log(resultado) // pedro
+
+Si hay un solo parametro se puede quitar los parentesis, ejemplo:
+
+const saludar = (res) => nombre = res; // Con parentesis
+const saludar = res => nombre = res; // Sin parentesis
+resultado = saludar("hola fran");
+console.log(resultado) // hola fran
+
+En las funciones flechas el uso de "this.variable" hace referencia al objeto que esta en window, es decir, en lo general de todo el programa.
+
+No son adecuadas para ser usadas como metodos y ni como constructores.
+
+- Funciones recursivas:
+
+Funciones que se llaman a sí mismas.
+
+- Clausuras:
+
+Son funciones que retornan funciones.
+
+const saludar = (nombre)=>{
+	return function(){
+		console.log(nombre);
+	}
+}
+
+- Parametros por defecto:
+
+Las funciones se le puede poner valores por defecto en caso de que el usuario no pase las variables, ejemplo:
+
+const suma = (a = 0, b = 0) => {
+	console.log(a+b);
+}
+suma(10); // 10
+
+- Parametros rest o argument (Es practicamente un array):
+
+const suma = (frase,...num) => {
+	let resultado = 0;
+	for (let i=0; i < num.length; i++){
+		resultado += num[i];
+	}
+	console.log(´${frase} ${resultado}´);
+}
+suma("hola", 12, 10, 30); // hola, 42
+
+- Destructuracion (arrays y objetos):
+
+Permite destructurar datos, ejemplo:
+
+const foo = ['one', 'two', 'three'];
+const [red, yellow, green] = foo;
+console.log(red); // "one"
+console.log(yellow); // "two"
+console.log(green); // "three"
+
+- Operador ternario:
+
+Usa menores recursos que el if.
+
+let edad = 25;
+(edad > 18) ? (
+		console.log("es mayor de edad"),
+		console.log("no puede pasar")
+	      )
+	    : console.log("es menor de edad")
+
+- Operador spread (Spread Operator):
+
+Es el parametro rest. Ejemplo: ...arg
+Destrutura los arrays.
+
+let array = ["valor 1", "valor 2", "valor 3"];
+console.log(...array); // valor 1 valor 2 valor 3
+
+Tambien podemos meter un arreglo dentro de otro, ejemplo:
+
+let array1 = ["manzana", "pera"];
+let array2 = ["banana", "naranja", "mandarina"];
+
+array1.push(...array2); // Mete todo los valores en el array1
+
+Tambien podemos concatenar un arreglo con otro, ejemplo:
+
+let array1 = ["manzana", "pera"];
+let array2 = ["banana", "naranja", "mandarina"];
+let array3 = [...array1, ...array2];
+
+- Objeto date:
+
+Nos da la fecha de la computadora o servidor.
+
+const fecha = Date(); // Nos da la hora, dia y pais en algunos casos.
+const fecha = new Date(); // Podemos acceder a distintos metodos del objeto.
+
+Recordemos que al ser un array empieza desde 0 y debemos sumar 1 en dado caso a los datos dados.
+
+getDate() // Nos da el número del día actual.
+getDay() // Nos da el número de la semana actual.
+getMonth() // Nos da el mes actual.
+getYear() // Nos da el año actual. + 1900
+getHours() // Nos da la hora actual.
+getMinutes() // Nos da los minutos actuales.
+getSeconds() // Nos da los segundos actuales.
+
+- LocalStorage y SessionStorage:
+
+localStorage.setItem("nombre", "Fran");
+localStorage.getItem("nombre");
+localStorage.removeItem("nombre");
+localStorage.clear(); // Limpia todo
+
+sessionStorage.setItem("nombre", "Fran");
+sessionStorage.getItem("nombre");
+sessionStorage.removeItem("nombre");
+sessionStorage.clear(); // Limpia todo
+
+- Drag and Drop:
+
+Eventos del objeto:
+
+dragstart
+drag
+dragend
+
+const circulo = document.querySelector(".circulo");
+
+circulo.addEventListener("dragstart", () => console.log("agarrado"));
+circulo.addEventListener("drag", () => console.log("manteniendo"));
+circulo.addEventListener("dragend", () => console.log("soltado"));
+
+Eventos de zona:
+
+dragenter
+dragover
+drop
+dragleave
+
+const rectangulo = document.querySelector(".rectangulo");
+
+rectangulo.addEventListener("dragenter", () => console.log("entro"));
+rectangulo.addEventListener("dragover", (e) => { e.preventDefault(); console.log("esta dentro") }); // el Preventdefault es para que permita dejarlo allí.
+rectangulo.addEventListener("drop", () => console.log("soltado"));
+rectangulo.addEventListener("dragleave", () => console.log("salio"));
+
+Propiedad dataTransfer:
+
+getData();
+setData();
+
+circulo.addEventListener("dragstart", (e) => {
+	console.log("agarrado");
+	e.dataTransfer.setData("clase", e.target.className);
+});
+
+rectangulo.addEventListener("drop", () => {
+	console.log("soltado");
+	var clase = e.dataTransfer.getData("clase");
+});
+
+- Geolocalizacion:
+
+options: enableHightAccuracy: false // Desactiva o activa la alta precision
+	 timeout: 3000 // Cuanto tiempo tarde en devolver la info
+	 maximumAge: 0 // Tiempo real, tiempo en actualizar la info
+
+getCurrentPosition(position, error, options) // Devuelve la posicion actual
+watchPosition() // Devuelve cambios en la posicion
+clearWatch() // Elimina la posicion
+
+const geolocation = navigator.geolocation;
+
+- Historial:
+
+history.metodo
+
+back() // Vuelve atras
+forward() // Va hacia adelante
+lenght() // Devuelve el tamaño del historial
+go() // Va al sitio indicado con un numero relativo (El numero depende del numero de la pagina del historial, con 0 la recarga)
+pushState(data, title, ?url) // Modifica la URL y conserva la info
+state // Devuelve el nombre del estado de la pagina
+replaceState() // Modifica la URL y no la conserva
+
+- FileReader:
+
+const reader = new FileReader();
+
+readAsText(file); // Lee archivos de texto.
+readAsDataURL(file); // Lee archivos tipo imagen, video, etc.
+readAsArrayBuffer(file); // Lee archivos y los pone en un array.
+
+Con el evento progress, podemos ver el peso subido del archivo.
+file.size // Nos dice cuanto es el peso final
+
+Con result obtenemos el archivo.
+
+e.currentTarget.result
+
+- IndexedDB:
+
+Una base de datos indexada. Es similar al localStorage.
+Es orientada a objeto, es asincrona y trabaja con eventos del DOM.
+
+Procedimiento de creacion de la base de datos:
+
+open()
+onupgradeneeded // Evento de si no esta creada la crea, si ya esta no hace eso
+on success // Evento de que se creo correctamente.
+onerror // Evento de que ocurrio un error.
+
+const IDBRequest = indexedDB.open("database", 1); // Nombre de la base de datos, si esta creada y si no la crea.
+
+IDBRequest.addEventListener("upgradeneeded", () => { console.log("Se creo correctamente."); });
+IDBRequest.addEventListener("success", () => { console.log("Todo correcto."); });
+IDBRequest.addEventListener("error", () => { console.log("Todo mal."); });
+
+Crear almacen de objetos:
+
+createObjectStore()
+autoIncrement vs KeyPath
+
+IDBRequest.addEventListener("upgradeneeded", () => { 
+	const db = IDBRequest.result;
+	db.createObjectStore("nombres", {
+		autoIncrement: true
+	});
+	console.log("Se creo correctamente.");
+});
+
+Almacenar objetos:
+
+transaction()
+IDBTransaction.objectStore()
+IDBObjectStore.add()
+
+const addObjetos = objeto => {
+	const db = IDBRequest.result;
+	const IDBtransaction = db.transaction("nombres", "readwrite"); // o "readonly" para solo leer.
+	const IDBobjectStore = IDBtransaction.objectStore("nombres");
+	IDBobjectStore.add(objecto);
+	IDBtransaction.addEventListener("complete", () => {
+		console.log("Objeto agregado correctamente");
+	});
+}
+
+Leer objeto:
+
+const readObjetos = objeto => {
+	const db = IDBRequest.result;
+	const IDBtransaction = db.transaction("nombres", "readonly"); // o "readonly" para solo leer.
+	const IDBobjectStore = IDBtransaction.objectStore("nombres");
+	const cursor = IDBojectStore.openCursor();
+	cursor.addEventListener("success", () => {
+		if(cursor.result){
+			console.log(cursor.result.value);
+			cursor.result.continue();
+		}
+		else{
+			console.log("Todos los datos fueron leidos");
+		}
+	});
+}
+
+Modificar objetos:
+
+const editObjetos = (key, objeto) => {
+	const db = IDBRequest.result;
+	const IDBtransaction = db.transaction("nombres", "readwrite"); // o "readonly" para solo leer.
+	const IDBobjectStore = IDBtransaction.objectStore("nombres");
+	IDBobjectStore.put(objecto, key);
+	IDBtransaction.addEventListener("complete", () => {
+		console.log("Objeto modificado correctamente");
+	});
+}
+
+Eliminar objetos:
+
+const deleteObjetos = key => {
+	const db = IDBRequest.result;
+	const IDBtransaction = db.transaction("nombres", "readwrite"); // o "readonly" para solo leer.
+	const IDBobjectStore = IDBtransaction.objectStore("nombres");
+	IDBobjectStore.delete(key);
+	IDBtransaction.addEventListener("complete", () => {
+		console.log("Objeto eliminado correctamente");
+	});
+}
+
+- MatchMedia:
+
+Nos permite trabajar con responsive design. (Solo usar cuando no se puede hacer algo con css).
+
+const mq = matchMedia("(max-width: 500px)"); // Dentro del parentesis van las media querys
+
+console.log(mq.matches) // True or False si coincide con el matchMedia y la pantalla.
+mq.addEventListener("change", () => {
+	console.log("resolucion cambiada"); // Cada vez que la resolucion cambia el max-width o no.
+});
+
+- Intersection Observer:
+
+Nos permite saber que esta visualmente en la pagina y que no. (Es similar a calcular el viewport de la pagina y calcular donde esta ubicado el usuario).
+
+const observer = new IntersectionObserver(callback, options);
+
+const options = {
+	root: // Toma un elemento como referencia, por defecto el viewport.
+	rootMargin: "30px" // Le coloca margen al observer
+	treshold: [0.5] // En que momento queremos que se vea el observer. 0 para apenas lo vea, 0.5 cuando lo vea a la mitad y 1 cuando ya esta completo.
+}
+
+Ejemplo:
+
+const cajas = document.querySelectorAll(".caja");
+
+const verifyVisibility = (entries) => {
+	for (let entry of entries) {
+		if (entry.isIntersecting) {
+			console.log("Se esta viendo la caja: ", entry.target.textContent);
+		}
+	}
+}
+
+const observer = new IntersectionObserver(verifyVisibility);
+for (let caja of cajas) {
+	observer.observe(caja);
+}
+
+- Lazy load:
+
+Es para ir cargando las cosas a medida que el usuario llega al final de la página, asi como hacen facebook o instagram.
+Que cargan las imagenes o publicaciones cuando se terminan.
+
+Ver proyecto realizado.
+
+- Visibilitychange:
+
+Si alguien cambia de pestaña y vuelve a la pagina, se puede saber con esto.
+
+addEventListener("visibilitychange", e => {
+	if (e.target.visibilityState == "visible") {
+		document.write("Abandonaste la página");
+	} else{
+		alert("Volviste a la pagina");
+	}
+});
+
+- Notifications:
+
+notification.requestPermission() // Sirve para pedir permiso de enviar notificaciones
+notification.permission // Granted = Permitido, Denied = Denegado, Default = Desconocido, actua como denegado.
+new Notification(msg, options) // Envia la notificacion
+
+- Web Workers:
+
+Permite realizar alguna actividad en segundo plano, mientras la pagina esta ocupada. (Por decirlo así).
+Practicamente es llamar a un archivo dentro de otro para que haga otras instrucciones.
+Tipos de web worker: Dedicated, Shared, Server y Abstract.
+
+Worker()
+options(type, credentials, name)
+postMessage() // Envia mensajes entre el web worker y el script principal
+onMessage // Recibir mensajes
+terminate() // Finaliza la ejecucion del web worker
+Politica de origen cruzado (Same-Origin) // Solo podemos acceder a los workers del mismo servidor y puerto. (origen).
+
+- Object navigator:
+
+Nos permite saber cierta informacion del navegador al entrar en la página.
+
+console.log("AppCodeName: ", navigator.appCodeName);
+console.log("AppName: ", navigator.appName);
+console.log("AppVersion: ", navigator.appVersion);
+console.log("Connection: ", navigator.connection);
+console.log("Geolocation: ", navigator.geolocation);
+console.log("HardwareConcurrency: ", navigator.hardwareConcurrency);
+console.log("Language: ", navigator.language);
+console.log("Languages: ", navigator.languages);
+console.log("MimeTypes: ", navigator.mimeTypes);
+console.log("OnLine: ", navigator.onLine);
+console.log("UserAgent: ", navigator.userAgent);
+console.log("CookieEnabled: ", navigator.cookieEnabled);
+console.log("Permissions: ", navigator.permissions);
+console.log("Platform: ", navigator.platform);
+console.log("Plugins: ", navigator.plugins);
+console.log("Product: ", navigator.product);
+console.log("ServiceWorker: ", navigator.serviceWorker);
+
+Metodos:
+
+navigator.getUserMedia() // No se usa más, mediaString es mejor. Para acceder a camara y micro.
+navigator.registerContentHandler() // Permite a los websites registrarse como posibles controladores de un tipo MIME determinado.
+navigator.registerProtocolHandler() // Permite a los webistes registrarse como posibles controladores de un protocolo determinado.
+navigator.requestMediaKeySystemAccess() // Devuelve un objeto promise para un objeto MediaKeySystemAccess.
+navigator.javaEnabled() // Nos devuelve si el navegador tiene Java o no disponible.
+navigator.sendBeacon() // Usado para transferir, de forma asincrona, conjuntos pequeños de datos HTTP del agente usuario al servidor.
+navigator.vibrate() // Causa vibracion en el dispositivo si lo soporta.
+
+- Memoization:
+
+Acorta tiempos de ejecucion para que la experiencia del Usuario sea mas optima.
+Practicamente nadie lo utiliza, y es bastante util e importante.
+
+let cache = [];
+
+const memoizer = func => {
+	return e => {
+		const index = e.toString();
+		if (cache[index] == undefined) {
+			cache[index] = func(e);
+		}
+		return cache[index];
+	}
+}
+
+Para funciones que se ejecutará varias veces y tendrá mismo resultado, lo guardamos en cache y así almacenamos los valores y no hay que hacerlo varias veces.
+
+- Memoria Caché:
+
+Sirve para almacenar informacion que será utilizada nuevamente, con el fin de ahorrar recursos en el futuro.
+
+Todos estos metodos son promesas, van precedidos de .then y la funcion flecha correspondiente.
+
+caches.open("name"); // Nombre de la cache que vamos a usar para almacenar.
+cache.add("archivo") // Agrega lo que sea que se pase
+cache.addAll(["archivo.1", "archivo.2"]) // Agrega todo lo que sea que se pase
+cache.delete("archivo") // Borra lo que sea que se pase
+cache.match("archivo") // Busca el primer archivo almacenado con el nombre pasado
+cache.matchAll(["archivo.1", "archivo.2"]) // Busca todos los archivos que coinicidan
+cache.put("archivo") // Edita los cambios de lo que se le pase
+cache.keys() // Devuelve las keys de todo lo almacenado.
+
+- Services Workers:
+
+if(!navigator.serviceWorker) {
+	console.log("Tu navegador no soporta ServiceWorker");
+} else {
+	navigator.serviceWorker.register("sw.js"); // Registra el service worker en nuestra computadora.
+}
+
+Se suele usar this o self (más comun usarlo con éste ultimo).
+
+Ciclo de vida:
+Se instala, luego activación.
+
+Luego hay que tener un evento fetch que reciba los requests.}
+
+postMessage() // Envia un mensaje al worker
+
+- Como registrar el caché y mostrar sitio offline:
+
+Ver ejemplo CachePage.
+
+- Cookies:
+
+Datos que se guardan en el navegador.
+Existen diferentes tipos de cookies. (Exceptuadas y no exceptuadas, etc).
+
+Las cookies son clave=valor;atr;atr;atr;atr.
+
+Las cookies solo permiten usar hasta 4kb, en cambio LocalStorage y SessionStorage permiten almacenar 5Mb.
+
+const newFechaUTC = dias => {
+	let fecha = new Date();
+	fecha.setTime(fecha.getTime() + dias*1000*60*60*24);
+	return fecha.toUTCString();
+} // Fecha en UNIX en formato UTC
+
+const crearCookies = (name, exp, path) => {
+	let expires = newFechaUTC(exp);
+	document.cookie = `${name};expires=${expires};path=${path}`;
+} // tambien se puede pasar max-age=tiempo en milisegundos, para saber cuanto va a durar la cookie.
+
+const obtenerCookie = cookieName => {
+	let cookies = document.cookie;
+	cookies = cookies.split(";");
+	for (let i = 0; cookies.length > i; i++) {
+		let cookie = cookies[i].trim();
+		if (cookie.startsWith(cookieName)) {
+			return cookie.split("=")[1];
+		}	
+	}
+	return "No hay cookies";
+}
+
+Para modificar una cookie, se re-escribe y listo.
+
+- Objeto Screen:
+
+anchoTotal = screen.width 
+alturaTotal = screen.height 
+
+anchoDisponible = screen.availWidth
+alturaDisponible = screen.availHeight
+
+resolucion = screen.pixelDepth // Resolucion de color de la pantalla
+profundidad = screen.colorDepth // Profundidad de bits de la paleta de colores
+
+- Objeto Canvas:
+
+Sirva para hacer gráficas, generalmente estadisticas.
+Desde juegos hasta animaciones.
+
+const canvas = document.getElementById("canvas");
+const ctx = canvas.getContext("2d");
+
+fillStyle = "#color" // Para darle color al relleno
+lineWidth = "numero" // Para aumentar el grosor del borde
+strokeRect(margin-left, margin-top, width, height) // Dibuja un rectangulo
+strokeStyle = "#color" // Para darle color al borde
+fillRect(margin-left, margin-top, width, height) // Rellena el rectangulo
+lineTo(x, y) // Puntos para trazar una linea
+stroke() // Traza la linea
+beginPath() // Para indicar que quieres empezar una linea o trazado
+closePath() // Para indicar que quieres terminar una linea o trazado
+arc() // Para dibujar circulo
+... Existen muchos más buscar
