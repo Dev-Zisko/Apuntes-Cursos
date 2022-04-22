@@ -1,0 +1,58 @@
+- GameObject: Cualquier entidad del juego.
+
+- Material:
+
+Tiling: Permite cambiar la repeticion de la imagen
+seleccionada como material.
+
+Bounciness: En un material físico con rigidbody, permite
+hacer que rebote al caer en una superficie.
+
+- 3D DCCs:
+
+3D Digital Content Creation Tools. Como Maya, Zbrush y Blender.
+
+Probuilder creado por unity para lo mismo.
+
+- 2D DCCs:
+
+Photoshop, Illustrator, Substance, Painter y Gimp.
+
+- Audio:
+
+Audio Digital Creation Tools. Herramientas como: Audition,
+Logic Pro, Reaper y Audacity.
+
+Spatial Blend en 1: Hace que los sonidos se oigan mas o menos
+dependiendo de si esta cerca o no del objeto.
+
+Rollof: Hace que el sonido tambien se desvanezca dependiendo
+de la lejania.
+
+3D Sound Settings, Set the Min Distance to 0.5 and the Max 
+Distance to 1. Within the Min Distance, the Audio Source 
+will play the clip at the maximum volume. Outside of this 
+distance, the volume will reduce up to the Max Distance, 
+where the user will no longer hear the audio.
+
+- Palabras claves en variables:
+
+[SerializeField]: Permite ver las variables privadas en unity.
+private: only methods of this class can access the member.
+public: 
+protected: methods of this class, or of derived classes, can access the member.
+const:
+readonly:
+static:
+
+
+Abstraction is the process of removing complex code from the scripts where other programmers will see it, and only exposing the functionality other programmers really need. When you “abstract out” the details, you reduce duplicate code and provide easy access to the most useful methods. The goal of abstraction is to keep your code as clean as possible, and simple for other programmers (or yourself!) to use. In our Rabbit example above, the Hop method would be a good example of abstraction. Without the Hop method, if a programmer wanted the Rabbit to move, they would have to write code that would access its RigidBody and set its velocity, hop height, and so on. With the Hop method, all of those aspects are abstracted away, allowing the programmer to focus on when the Rabbit should hop rather than how. 
+Inheritance is the process of creating a primary class from which other classes, referred to as child classes, can be created. A child class takes on all of the features of the primary, or parent class, automatically. This reduces the need to rewrite code that both classes would need to make use of. As an example, let’s say that we wanted to create a new class called Bunny. Like the Rabbit class, it has ears that can be floppy or standing, has fur that can be a specific color, and can hop. Without inheritance, you’d essentially have to copy all of the code you already wrote and paste it into the new class. With inheritance, you simply extend the Rabbit class, and that functionality is already there and accessible for the Bunny class. The Bunny class could then go on to feature Bunny-specific functionality, such as eating Bunny chow.
+Polymorphism is one of the most useful aspects of using inheritance. It allows you to create alternative functionality for code that's been inherited from a parent class. As an example, our child Bunny class represents a domesticated Rabbit. It’s able to hop just as a Rabbit is able to, but a Bunny should probably be a little bit slower than its wild parent counterpart. With polymorphism, you can override the contents of the Hop method and write custom code that’s unique to the Bunny. The method call remains the same, but the correct code will be called based on which entity it was called on.
+Encapsulation is similar to abstraction in that its overarching purpose is to separate the programmer from code complexity, but the focus here is more on code safety in the form of accessibility. Encapsulation gives you tools to code for other programmers, and make sure that they only use your variables and methods as intended. In encapsulated code, other programmers can’t easily change the values of variables or the properties of objects. It’s impossible to account for all of the different ways that other scripts might access your code, so it's far better to encapsulate what you’ve created so it can only perform as intended. As an example, let’s say that our Rabbit’s ear type affects its hearing ability. Once that value is set, it shouldn’t be changed later on. To ensure that the value is protected, you would set it as private, preventing any outside scripts from accessing it. 
+
+
+Abstraction: reducing duplicate code by “abstracting out” repeated details or information.
+Encapsulation: “encapsulating” data and the methods that manipulate that data together in a class, protecting it from misuse by other classes.
+Inheritance: child classes deriving (or “inheriting”) behavior from parent classes.
+Polymorphism: changing (“morphing”) methods into many (“poly”) forms (i.e., method overloading and method overriding).

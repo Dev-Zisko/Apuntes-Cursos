@@ -1,0 +1,177 @@
+#####################################################
+- Que es Docker?
+#####################################################
+
+Nos permite usar una imagen donde estará nuestra aplicación 
+corriendo con todas su dependencias en un sistema operativo.
+
+#####################################################
+- Instalacion:
+#####################################################
+
+Página oficial de docker y buscar el instalador, o si es
+Ubuntu seguir los comandos y pasos necesarios.
+
+#####################################################
+- Como empezar:
+#####################################################
+
+En docker hub podemos buscar imagenes con distintos ambientes
+ya creados, listos para trabajar.
+
+Ejecutamos "docker run postgres:tag"(tag = version o lastest)
+Si no tenemos esa imagen en la computadora, se instalara y 
+luego la pondrá en ejecucion.
+
+#####################################################
+- Comandos más comunes:
+#####################################################
+
+docker run: Descargar y correr. (Ya lo tienes no descarga)
+docker pull: Descargar únicamente.
+docker images: Todas las imagenes en la pc.
+docker images | head: Imagenes en la pc solo los primeros.
+docker ps: Contenendores ejecutandose.
+docker ps -a: Contenedores que han sido ejecutados.
+docker start CONTAINER_ID: Inicia el contenedor seleccionado por el id y lo hace en background.
+docker logs CONTAINER_ID: Logs de ese contenedor.
+docker logs -f CONTAINER_ID: Logs y sigue leyendolos.
+docker exec CONTAINER_ID: Ejecuta un comando dentro de un contenedor corriendo.
+docker exec -it CONTAINER_ID sh: Ejecuta el comando de correr una consola en dicho contenedor.
+docker stop CONTAINER_ID: Detiene un contenedor específico.
+docker run -d CONTAINER_ID: Correr contenedor en background.
+
+#####################################################
+- Como usar los contenedores y desarrollar aplicaciones:
+#####################################################
+
+Se debe crear un archivo llamado "Dockerfile".
+
+Ejemplo para una aplicacion de node, buscar una imagen de
+node y usarla:
+
+FROM node:12.22.1-alpine3.11
+
+WORKDIR /app
+COPY . .
+RUN yarn install --production
+
+CMD ["node", "/app/src/index.js"]
+
+Se suele usar la distribucción de linux "alpine" por su 
+livianez.
+
+#####################################################
+- Construir un contenedor:
+#####################################################
+
+docker build -t name_of_image .
+
+#####################################################
+- Correr ese contenedor:
+#####################################################
+
+docker run name_of_image
+
+#####################################################
+- Permitir usar y ver los puertos de docker:
+#####################################################
+
+docker run -dp 3000:3000 name_of_image
+
+#####################################################
+- No perder la informacion de un contenedor al finalizarlo, 
+si usamos bases de datos o algo. Usando volumenes:
+#####################################################
+
+docker run -v /Users/kbs/ejemplo-docker/app/etc:/etc/todos -p -d 3000:3000 name_of_image
+
+#####################################################
+- Otro ejemplo con dos volumenes:
+#####################################################
+
+docker run -v /Users/kbs/ejemplo-docker/app/etc:/etc/todos -v /Users/kbs/ejemplo-docker/app/src:/app/src -p -d 3000:3000 name_of_image
+
+#####################################################
+- Reconstruir la imagen con los cambios nuevos:
+#####################################################
+
+docker build -t name_of_image:v2 (cambiamos la version de dicha imagen)
+
+#####################################################
+- Para compartir nuestras imagenes con otras personas:
+#####################################################
+
+Nos creamos una cuenta en dockerhub y estar logueados.
+
+docker login: Nos logueamos si no lo estabamos.
+
+docker tag IMAGE_ID zisko/name_of_image:v2: Cambiamos el tag con nuestro nombre para el repo.
+
+docker push IMAGE_ID: Se sube la imagen al repositorio.
+
+#####################################################
+- Correr varios contenedores al mismo tiempo:
+#####################################################
+
+Uno de base de datos y otro de la aplicacion, en este
+ejemplo:
+
+Debemos crear una network con:
+
+docker network create datos-app
+
+Ahora corremos la network:
+
+docker run -d --network datos-app --network-alias mysql -v datos-app-mysql-data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=secret -e MYSQL_DATABASE=bd_datos mysql:5.7
+
+Ver la base de datos en la consola:
+
+docker exec -it CONTAINER_ID mysql -p
+
+Como conectarnos a esa base de datos:
+
+docker run -it --network datos-app nicolaka/netshoot: Para ver la base de datos si queremos
+
+docker run -dp 3000:3000 --network datos-app -e MYSQL_HOST=mysql -e MYSQL_USER=root - e MYSQL_PASSWORD=secret -e MYSQL_DB=bd_datos name_of_image:v2
+
+Ver si se conecto correctamente la app con la base de datos:
+
+docker logs CONTAINER_ID
+
+#####################################################
+- Docker compose:
+#####################################################
+
+vim docker-compose.yaml
+
+Ejemplo de como se ve más o menos:
+
+version: "3.7"
+
+services:
+	app:
+		image: project/hola:v1
+		ports: - 3000:3000
+		environment:
+			MYSQL_HOST: mysql
+			MYSQL_USER: root
+			MYSQL_PASSWORD: secret
+			MYSQL_DB: bd_datos
+	mysql:
+		image: mysql:5.7
+		volumes: - ./mysql-data:/var/lib/mysql
+		environment:
+			MYSQL_ROOT_PASSWORD: secret
+			MYSQL_DATABASE: bd_datos
+
+docker-compose up -d: Correr las configuraciones y se ejecutara en background.
+
+docker-compose down: Apaga todo.
+
+NOTA cuando se cae algun contenedor por mala conexión:
+Varios comentaron correctamente que podría haber solucionado el problema de correr la app antes de mysql usando un "depends_on" en el docker-compose. Acá está la documentación:
+
+https://docs.docker.com/compose/startup-order/
+
+Pero como dicen ahi, el depends_on no espera a que la aplicación esté funcionando, solo espera a que el proceso inicie. La forma correcta es hacer que la aplicación no se muera cuando no se pueda conectar a la base de datos, sino que reintente hasta que se conecte y ahi siga andando. Obvio esto es algo mas avanzado y no tenía sentido comentarlo con este codigo de prueba, pero está bueno saberlo para los casos reales.

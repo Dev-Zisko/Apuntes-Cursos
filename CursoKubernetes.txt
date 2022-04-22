@@ -1,0 +1,197 @@
+Extra: Cast.io
+Libro: sre/book/html Site Reliability Engineering O'REILLY
+
+#####################################################
+- Que es Kubernetes?
+#####################################################
+
+Permite orquestar los contenedores de docker por ejemplo.
+Cuando se tienen demasiado contenedores que se deben correr
+se usa kubernetes para facilitar todo esto.
+
+Se crea un manifiesto con los distintos deployments y se
+encarga de levantar los contenedores indicados.
+
+#####################################################
+- Componentes de Kubernetes:
+#####################################################
+
+-----------------------------------
+API server
+Cloud controller manager (optional)
+Controller manager
+ETCD (persistence store)               <-Control plane
+Kubelet
+Kube-proxy
+Scheduler
+------------------------------------
+Nodes
+
+#####################################################
+- Como instalar kubernetes:
+#####################################################
+
+Debemos instalar kubectl, buscar en google.
+
+kubectl version --client=true
+
+#####################################################
+- Minikube:
+#####################################################
+
+Permite correr kubernetes con una interfaz y trae algunos
+plugin interesantes.
+
+#####################################################
+- Creando un cluster en digitalocean:
+#####################################################
+
+kubeconfig (Archivo de configuracion)
+
+export KUBECONFIG=./Downloads/etc/etc
+kubectl get nodes
+
+#####################################################
+- Comandos mas usados:
+#####################################################
+
+kubectl --help
+
+get
+edit
+delete
+apply
+exec
+port-forward
+cordon
+uncordon
+drain
+
+kubectl config get-contexts
+
+#####################################################
+- Herramienta Lens:
+#####################################################
+
+Nos permite ver graficamente nuestros contenedores.
+
+#####################################################
+- Namespaces:
+#####################################################
+
+Sirve para dividir los recursos.
+
+kubectl get ns
+
+#####################################################
+- Pods:
+#####################################################
+
+Es un set de contenedores. Generalmente se corre una
+app en un pod, pero hay casos donde hay más apps corriendo
+en un pod.
+
+kubectl -n kube-system get pods (Todos los pods corriendo)
+kubectl -n kube-system get pods -o wide
+
+#####################################################
+- Manifiesto para crear un pod:
+#####################################################
+
+apiVersion: v1
+kind: Pod
+metada:
+	name: nginx
+spec:
+	containers:
+	- name: nginx
+	  image: nginx:alpine
+
+Para aplicar el manifiesto al pod:
+
+kubectl apply -f 01-pod.yaml
+
+Para ejecutar un comando dentro del pod:
+
+kubectl exec -it nginx -- sh
+
+Para eliminar un pod:
+
+kubectl delete pod nginx
+
+#####################################################
+- Variables de entorno o ambiente en el manifiesto:
+#####################################################
+
+env:
+- name: MI_VARIABLE
+  value: "hola"
+- name: OTRA_VARIABLE
+  value: "mundo"
+- name: DD_AGENT_HOST
+  valueFrom:
+    fieldRef:
+      fieldPath: status.hostIP
+
+#####################################################
+- Recursos de memoria y CPU en el manifiesto:
+#####################################################
+
+resources:
+  requests:
+    memory: "64Mi"
+    cpu: "200m"
+  limits:
+    memory: "128Mi"
+    cpu: "500m"
+
+#####################################################
+- ReadinessProbe y LivenessProbe en el manifiesto:
+#####################################################
+
+ReadinessProbe: Esta listo para recibir trafico.
+LivenessProbe: Esta vivo, que no se cierre.
+
+readinessProbe:
+  httpGet:
+    path: /
+    port: 80
+  initialDelaySeconds: 5
+  periodSeconds: 10
+livenessProbe:
+  tcpSocket:
+    port: 80
+  initialDelaySeconds: 15
+  periodSeconds: 20
+
+#####################################################
+- Puertos en el manifiesto:
+#####################################################
+
+ports:
+- containerPort: 80
+
+Ver el yaml con toda la configuracion más el estado del pod:
+
+kubectl get pod nginx -o
+
+#####################################################
+- Como hacer deployments:
+#####################################################
+
+Abrir el archivo de deployment, revisar y configurar, como
+con el manifiesto pero del tipo deployment.
+
+#####################################################
+- Manifiesto DaemonSet:
+#####################################################
+
+Para hacer deployments en todos los nodos. Como el manifiesto
+pero tipo DaemonSet.
+
+Se puden hacer replicas, etc.
+
+#####################################################
+- Manifiesto StatefulSet y Volumenes:
+#####################################################
+
